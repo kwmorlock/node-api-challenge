@@ -40,11 +40,14 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+- [X] Describe Middleware?
+`Middleware is sort of like an array of functions that get executed in the order they are introduced into the server code.`
 
-- [ ] Describe a Resource?
+- [X] Describe a Resource?
+`When designing a RESTful web api everything is a resource. Each resource is accessible via a unique URI. Resources can have multiple representations. Communication happens over a stateless protocol (HTTP). Resource management happens via HTTP methods.`
 
-- [ ] What can the API return to help clients know if a request was successful?
+- [X] What can the API return to help clients know if a request was successful?
+`We return HTTP status code 201 (created) for successful POST operations`
 
 - [ ] How can we partition our application into sub-applications?
 
