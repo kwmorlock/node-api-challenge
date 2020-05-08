@@ -76,6 +76,22 @@ if (!name || !description) {
     });
   });
 
+  router.delete('/:id', validateUserId, (req, res) => {
+    Udb.remove(req.params.id)
+    .then(count => {
+      if (count > 0) {
+        res.status(200).json({ message: "The project has been removed" });
+      } else {
+        res.status(404).json({ message: "The project with the specified ID does not exist." });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({
+          error: "The project could not be removed",
+      });
+    });
+  });
 
 
 
