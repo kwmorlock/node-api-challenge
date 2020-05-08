@@ -1,16 +1,18 @@
 const express = require('express');
 
-const Udb = require('./projectModel.js');
+const Db = require('../data/helpers/actionModel.js');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    Udb.get()
+    Db.get()
     .then(udb => {
       res.status(200).json(udb);
     })
     .catch(error => {
       console.log(error);
-      res.status(500).json({ error: "The posts information could not be retrieved." });
+      res.status(500).json({ error: "The actions information could not be retrieved." });
     });
   });
+
+  module.exports = router;

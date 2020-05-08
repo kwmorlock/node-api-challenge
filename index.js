@@ -14,6 +14,7 @@ Go code!
 */
 
 //npm i and npm install express
+//nodemon installed
 const server = require('./server.js');
 
 server.listen(4000, () => {
