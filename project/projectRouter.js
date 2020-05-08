@@ -15,4 +15,83 @@ router.get('/', (req, res) => {
     });
   });
 
+  router.get('/:id', validateUserId, (req, res) => {
+    Udb.getProjectActions(req.params.id)
+    .then(udb => {
+      if (udb) {
+        res.status(200).json(udb);
+      } else {
+        res.status(404).json({ message: "The action with the specified ID does not exist." });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({
+        message: "Error retrieving the db",
+      });
+    });
+  });
+
+  router.post('/', (req, res) => {
+    const {name, description} = req.body;
+
+if (!name || !description) {
+  res.status(400).json({
+    error: "Lets see if this works"
+  })
+}
+
+    Udb.insert(req.body)
+    .then(udb => {
+      res.status(201).json(udb);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({
+          error: "There was an error while saving the action to the database" ,
+      });
+    });
+  });
+
+
+
+
+  function validateUserId(req, res, next) {
+  Udb.getProjectActions(req.params.id)
+  .then((user) => {
+    if(user) {
+      req.user = user;
+      next();
+    }else {
+      res.status(400).json({
+        message: "The id does not exist",
+      })
+    }
+  })
+  .catch((error) =>{
+    console.log(error);
+    res
+    .status(500)
+    .json({
+      error: "stuff cant be retrieved"
+    })
+  })
+  }
+
+  function validateUser(req, res, next) {
+    if (Object.keys(req.body).length !== 0) {
+      // if the length is not equal to zero than its a valid user
+      //keys return an array of strings?
+      req.body.name
+        ? next()
+        : res.status(400).json({ error: "provide name for the user." });
+    } else {
+      res.status(400).json({ error: "missing data" });
+    }
+  }
+
+
+  
+
+
   module.exports = router;
