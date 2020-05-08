@@ -1,11 +1,11 @@
 const express = require('express');
 
-const Udb = require('./actionModel.js');
+const Db = require('./actionModel.js');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    Udb.get()
+    Db.get()
     .then(udb => {
       res.status(200).json(udb);
     })
