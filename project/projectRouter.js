@@ -53,6 +53,29 @@ if (!name || !description) {
     });
   });
 
+  router.put("/:id", (req, res) => {
+    const {name, description} = req.body;
+
+   if (!name || !description) {
+  res.status(400).json({
+    error: "Lets see if this works"
+  })
+} 
+    // console.log(req.body)
+    Udb.update(Number(req.params.id), req.body)
+    .then(result => {
+      if (result === 1) {
+        res.status(204).send()
+      } else {
+        res.status(500).json({ error: "error updating record" })
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json({ error: "error connecting to database" });
+    });
+  });
+
 
 
 
