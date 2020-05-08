@@ -16,7 +16,7 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
+- [X] Create a forked copy of this project.
 - [ ] Add your _Team Lead_ as collaborator on Github.
 - [ ] Clone your forked version of the Repository.
 - [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
@@ -38,15 +38,26 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [X] Mention two parts of Express that you learned about this week.
+`Express sits on top of the raw http server module provided by Node.js and adds extra functionality, like routing and middleware support, and a simpler API.`
 
-- [ ] Describe Middleware?
+`It also has drawbacks, because we are forced to make more decisions due to the flexibility and control it provides.` 
 
-- [ ] Describe a Resource?
+`Middleware - Express’ middleware stack is basically an array of functions.`
 
-- [ ] What can the API return to help clients know if a request was successful?
+`Routing - Routing is a way to select which request handler function is executed. It does so based on the URL visited and the HTTP method used. Routing provides a way to break an application into smaller parts.`
 
-- [ ] How can we partition our application into sub-applications?
+- [X] Describe Middleware?
+`Middleware is sort of like an array of functions that get executed in the order they are introduced into the server code.`
+
+- [X] Describe a Resource?
+`When designing a RESTful web api everything is a resource. Each resource is accessible via a unique URI. Resources can have multiple representations. Communication happens over a stateless protocol (HTTP). Resource management happens via HTTP methods.`
+
+- [X] What can the API return to help clients know if a request was successful?
+`We return HTTP status code 201 (created) for successful POST operations`
+
+- [X] How can we partition our application into sub-applications?
+`We would break down the app into resources and then have the API crud functions.`
 
 ## Minimum Viable Product
 

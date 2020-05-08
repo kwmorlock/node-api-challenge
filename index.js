@@ -12,3 +12,11 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+
+//npm i and npm install express
+//nodemon installed
+const server = require('./server.js');
+
+server.listen(4000, () => {
+    console.log('\n* Server Running on http://localhost:4000 *\n');
+  });
