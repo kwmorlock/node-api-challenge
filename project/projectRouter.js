@@ -67,7 +67,7 @@ if (!name || !description) {
       if (result === 1) {
         res.status(204).send()
       } else {
-        res.status(500).json({ error: "error updating record" })
+        res.status(500).json({ success: "Updating record" })
       }
     })
     .catch((err) => {
